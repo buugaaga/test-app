@@ -1,24 +1,9 @@
 import Head from 'next/head'
-import { makeStyles, Grid, Container } from '@material-ui/core'
-import { Top } from '../src/components/Top'
-
-const useStyles = makeStyles({
-  root: {
-    minWidth: '1481px',
-    height: '470px',
-    backgroundImage: `url('/background.svg')`,
-    inherit: 'none', 
-  },
-})
+import { App } from '../src/containers/App'
 
 export default function Home() {
-  const classes = useStyles()
   return (
-    <Container className={classes.root}>
-      <Grid container direction="column">
-        <Top />
-      </Grid>
-    </Container>
+    <App />
   )
 }
 //   return (
