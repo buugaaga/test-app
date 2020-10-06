@@ -3,6 +3,7 @@ import { Container, makeStyles, Grid } from '@material-ui/core'
 import background from '../icons/background.svg'
 import { Top } from '../components/Top'
 import { PersonalProfile } from '../components/PersonalProfile'
+import { PersonalCard } from '../components/PersonalCard'
 
 const useStyles = makeStyles({
   root: {
@@ -22,6 +23,7 @@ export const App = () => {
     <Grid container direction='column'>
       <Top />
       <PersonalProfile />
+      <PersonalCard />
     </Grid>
   </Container>)
 }

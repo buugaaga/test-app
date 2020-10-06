@@ -8,7 +8,7 @@ const theme = createMuiTheme({
       main: '#556cd6',
     },
     secondary: {
-      main: '#19857b',
+      main: '#fff',
     },
     error: {
       main: red.A400,
@@ -24,6 +24,9 @@ const theme = createMuiTheme({
     body2: {
       color: '#fff',
     },
+    h4: {
+      color: '#fff',
+    }
   },
   // TODO: need to download open sans
   // overrides: {
