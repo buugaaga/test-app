@@ -20,5 +20,18 @@ const theme = createMuiTheme({
       main: '#fff',
     },
   },
+  typography: {
+    body2: {
+      color: '#fff',
+    },
+  },
+  // TODO: need to download open sans
+  // overrides: {
+  //   MuiCssBaseline: {
+  //     '@global': {
+  //       '@font-face': ['Open Sans'],
+  //     },
+  //   },
+  // },
 })
 export default theme

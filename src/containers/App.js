@@ -2,6 +2,7 @@ import React from 'react'
 import { Container, makeStyles, Grid } from '@material-ui/core'
 import background from '../icons/background.svg'
 import { Top } from '../components/Top'
+import { PersonalProfile } from '../components/PersonalProfile'
 
 const useStyles = makeStyles({
   root: {
@@ -20,6 +21,7 @@ export const App = () => {
   <Container className={classes.root}>
     <Grid container direction='column'>
       <Top />
+      <PersonalProfile />
     </Grid>
   </Container>)
 }

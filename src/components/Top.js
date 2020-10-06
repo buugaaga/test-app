@@ -1,18 +1,11 @@
 import React from 'react'
-import { SvgIcon, Grid, makeStyles, Box, Typography } from '@material-ui/core'
-
-const useStyles = makeStyles({
-  root: {
-    height: '30px',
-    width: '100%',
-  },
-})
+import { SvgIcon, Grid, Box, Typography } from '@material-ui/core'
 
 export const Top = (props) => {
   const { name } = props
-  const classes = useStyles()
+
   return (
-    <Grid item className={classes.root}>
+    <Grid item >
       <Grid container justify="flex-end">
         <Box m={2} alignItems="center" display="flex">
           <SvgIcon width="24" height="30" viewBox="0 0 24 30">
