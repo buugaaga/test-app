@@ -1,7 +1,10 @@
 import React from 'react'
+import axios from 'axios'
 import { CardContent, Grid, SvgIcon, Box, Button, makeStyles } from '@material-ui/core'
 import { Formik, Form, Field } from 'formik'
 import { TextField } from 'formik-material-ui'
+import { useLocalStorage } from '../../hooks'
+import { schema } from './validator'
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -15,17 +18,21 @@ const useStyles = makeStyles(theme => ({
 
 export const OpenForm = (props) => {
   const classes = useStyles();
+  const [person, setPerson] = useLocalStorage('testApp', []);
   return (
     <CardContent>
       <Formik
-        onSubmit={(values) => {
+        onSubmit={async (values) => {
           console.log(values)
+          await setPerson(values)
+          await axios.post('/api/hello', values)
         }}
         initialValues={{
           fullName: '',
           email: '',
           tel: '',
         }}
+        validationSchema={schema}
       >
         {() => (
           <Form>
@@ -68,8 +75,8 @@ export const OpenForm = (props) => {
                     name="email"
                     component={TextField}
                     variant="outlined"
-                    label="Фамилия и имя"
-                    placeholder="Укажите ваши фамилию и имя"
+                    label="E-mail"
+                    placeholder="Ivanova@mail.ru"
                   />
                 </Box>
               </Grid>
@@ -89,8 +96,8 @@ export const OpenForm = (props) => {
                     name="tel"
                     component={TextField}
                     variant="outlined"
-                    label="Фамилия и имя"
-                    placeholder="Укажите ваши фамилию и имя"
+                    label="Номер телефона"
+                    placeholder="Укажите номер телефона"
                   />
                 </Box>
               </Grid>

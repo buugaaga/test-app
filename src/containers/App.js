@@ -11,7 +11,7 @@ const useStyles = makeStyles({
     height: '470px',
     width: '100%',
     minWidth: '1081px',
-    display: 'flex',
+
     backgroundImage: `url(${background})`,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
