@@ -1,24 +1,32 @@
 import React from 'react'
 import axios from 'axios'
-import { CardContent, Grid, SvgIcon, Box, Button, makeStyles } from '@material-ui/core'
+import {
+  CardContent,
+  Grid,
+  SvgIcon,
+  Box,
+  Button,
+  makeStyles,
+} from '@material-ui/core'
 import { Formik, Form, Field } from 'formik'
 import { TextField } from 'formik-material-ui'
 import { useLocalStorage } from '../../hooks'
 import { schema } from './validator'
+import { DialogAction } from './DialogAction'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   button: {
     color: 'white',
-    backgroundColor: "#00BFA5",
+    backgroundColor: '#00BFA5',
     '&:hover': {
-      backgroundColor: "#009FA5",
+      backgroundColor: '#009FA5',
     }, // желательно не использовать кастомные цвета а делать через theme
-  }
+  },
 }))
 
 export const OpenForm = (props) => {
-  const classes = useStyles();
-  const [person, setPerson] = useLocalStorage('testApp', []);
+  const classes = useStyles()
+  const [person, setPerson] = useLocalStorage('testApp', [])
   return (
     <CardContent>
       <Formik
@@ -34,7 +42,7 @@ export const OpenForm = (props) => {
         }}
         validationSchema={schema}
       >
-        {() => (
+        {({ submitForm}) => (
           <Form>
             <Grid container spacing={2}>
               <Box alignSelf="center">
@@ -102,9 +110,15 @@ export const OpenForm = (props) => {
                 </Box>
               </Grid>
               <Grid item xs={12} container justify="center">
-                <Button type="submit" size="large" variant="contained" className={classes.button}>
-                  Сохранить изменения
-                </Button>
+                <DialogAction onClick={submitForm}>
+                  <Button
+                    size="large"
+                    variant="contained"
+                    className={classes.button}
+                  >
+                    Сохранить изменения
+                  </Button>
+                </DialogAction>
               </Grid>
             </Grid>
           </Form>
